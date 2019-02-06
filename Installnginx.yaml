@@ -1,0 +1,15 @@
+---
+- hosts: node
+  tasks:
+  - name: Installing nginx using apt
+    apt:
+      name: nginx
+      state: present
+  - name: Ensuring nginx service is stopped
+    service:
+      name: nginx
+      state: started
+  - name: Ensuring nginx service is started
+    service:
+      name: nginx
+      state: started

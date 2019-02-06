@@ -1,0 +1,14 @@
+---
+- hosts: node
+  tasks:
+    - name: Package Installation with Loops for {{ ansible_hostname }}
+      package:
+        name: "{{ item }}"
+        state: installed
+      with_items:
+        - memcached
+        - gcc
+        - ntp
+        - vim
+        - nano
+        - nginx

@@ -1,0 +1,11 @@
+---
+- hosts: node
+  tasks:
+  - name: Creating user on Slave machine
+    user:   
+      name: samdeo1
+      state: present
+  - name: Craeting file on Slave
+    file:
+      name: /home/ubuntu/tmp.txt
+      state: touch 	

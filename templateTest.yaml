@@ -1,0 +1,11 @@
+---
+- hosts: node
+  tasks:
+    - name: copy module
+      copy:
+        src: copy.html
+        dest: /var/www/html/copy.html
+    - name: template module
+      template:
+        src: template.html.j2
+        dest: /var/www/html/template.html

@@ -1,0 +1,24 @@
+---
+- hosts: node
+  tasks:
+  - name: deleting old nginx Home page or default page
+    file:
+      path: /var/www/html/index.nginx-debian.html
+      state: absent
+  - name: Copy Custom File to override default
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+    notify:
+      - restart nginx
+
+  - name: Ensuring nginx service is runnig
+    service:
+      name: nginx
+      state: started
+
+  handlers:
+  - name: restart nginx
+    service:
+      name: nginx
+      state: restarted
