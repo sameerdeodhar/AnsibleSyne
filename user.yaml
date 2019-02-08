@@ -3,5 +3,5 @@
   tasks:
   - name: Creating user on Slave machine
     user:   
-      name: samdeo1
+      name: samDevops
       state: present
